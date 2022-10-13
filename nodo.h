@@ -1,5 +1,6 @@
 #ifndef NODO_H
 #define NODO_H
+#include <iostream>
 
 template <typename  Tipo_de_animal>
 class Nodo{
@@ -22,7 +23,7 @@ class Nodo{
         }
 
         Tipo_de_animal get_animal(){
-            return animal;
+            return (*animal);
         }
 };
 
