@@ -14,6 +14,7 @@
 
 const int ERROR = -1;
 const int EXITO = 0;
+const int PRIMERA_POSICION_VECTOR = 0;
 
 using std::cout;
 using std::string;
@@ -24,14 +25,14 @@ const string NOMBRE_CSV = "animales.csv";
 //Pre: Debe recibir todas las caracteristicas de un animal y la lista de animales
 //Post: Da de alta un animal en la lista con los datos recibidos.
 template <typename Tipo_de_animal>
-void crear_animal(string nombre, int edad, string tamanio, char especie, string personalidad, Lista<Animal*> registro_de_animales){
+void crear_animal(string nombre, int edad, string tamanio, char especie, string personalidad, Lista<Animal*> &registro_de_animales){
     Animal* nuevo_animal = new Tipo_de_animal(nombre, edad, tamanio, especie, personalidad);
     registro_de_animales.alta(nuevo_animal, (registro_de_animales.get_tope_nodos() + UNA_POSICION));
 }
 
 //Pre: Debe recibir todas las caracteristicas de un animal.
 //Post: Revisa a que especie pertenece el nuevo animal y llama a la funcion correspondiente para crearlo
-void revisar_especie(string nombre, int edad, string tamanio, char especie, string personalidad, Lista<Animal*> registro_de_animales){
+void revisar_especie(string nombre, int edad, string tamanio, char especie, string personalidad, Lista<Animal*> &registro_de_animales){
 
     if(especie == 'G'){
         crear_animal<Gato>(nombre, edad, tamanio, especie, personalidad, registro_de_animales);
@@ -52,7 +53,7 @@ void revisar_especie(string nombre, int edad, string tamanio, char especie, stri
 
 //Pre: Debe recibir un archivo csv con los datos de los animales y una lista vacia de animales
 //Post: Devuelve la lista de animales inicializada con los datos leidos del archivo
-void inicializar_registro(std::ifstream &archivo_animales, Lista<Animal*> registro_de_animales){
+void inicializar_registro(std::ifstream &archivo_animales, Lista<Animal*> &registro_de_animales){
     string especie;
     string edad;
     string nombre;
@@ -65,11 +66,11 @@ void inicializar_registro(std::ifstream &archivo_animales, Lista<Animal*> regist
         getline(archivo_animales, especie, ',');
         getline(archivo_animales, personalidad, '\n');
 
-        revisar_especie(nombre, std::stoi(edad), tamanio, especie[PRIMERA_POSICION], personalidad, registro_de_animales);
+        revisar_especie(nombre, std::stoi(edad), tamanio, especie[PRIMERA_POSICION_VECTOR], personalidad, registro_de_animales);
     }
 }
 
-int abrir_archivo(Lista<Animal*> registro_de_animales){
+int abrir_archivo(Lista<Animal*> &registro_de_animales){
     std::ifstream archivo_animales(NOMBRE_CSV);
     if(!archivo_animales.is_open()){
         cout<<"Error al abrir el archivo. Compruebe que exista y que no este corrompido y vuelva a intentar."<<endl;

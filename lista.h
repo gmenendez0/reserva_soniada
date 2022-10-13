@@ -2,7 +2,7 @@
 #define LISTA_H
 #include "nodo.h"
 
-const int PRIMERA_POSICION = 1;
+static const int PRIMERA_POSICION = 1;
 const int UNA_POSICION = 1;
 const int LISTA_VACIA = 0;
 
@@ -29,6 +29,7 @@ class Lista{
             if (posicion == PRIMERA_POSICION){
                 nuevo_nodo->set_siguiente_nodo(primer_nodo);
                 primer_nodo = nuevo_nodo;
+                nodo_actual = primer_nodo;
             } else{
                 Nodo<Tipo_de_animal>* anterior_nodo = get_nodo(posicion - UNA_POSICION);
                 nuevo_nodo->set_siguiente_nodo(anterior_nodo->get_siguiente_nodo());
@@ -57,6 +58,7 @@ class Lista{
                 anterior_nodo->set_siguiente_nodo(nodo_a_borrar->get_siguiente_nodo());
             }
 
+            delete nodo_a_borrar->get_animal();
             delete nodo_a_borrar;
             tope_nodos--;
         }

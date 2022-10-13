@@ -19,14 +19,16 @@ class Animal{
         //Post: Inicializa el animal con los valores recibidos.
         Animal(string nombre, int edad, string tamanio, char especie, string personalidad);
 
-        //Pre: -
-        //Post: Imprime en pantalla una presentacion de todos los atributos del animal.
-        void presentar_animal();
-
     private:
         //Pre: -
         //Post: Devuelve la especie del animal en forma completa.
         string get_especie_completa();
+
+    public:
+        //Pre: -
+        //Post: Imprime en pantalla una presentacion de todos los atributos del animal.
+        void presentar_animal();
+
 };
 
 #endif

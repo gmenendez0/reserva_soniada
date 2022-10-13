@@ -23,7 +23,7 @@ class Nodo{
         }
 
         Tipo_de_animal get_animal(){
-            return (*animal);
+            return animal;
         }
 };
 

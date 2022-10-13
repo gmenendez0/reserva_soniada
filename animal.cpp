@@ -11,6 +11,10 @@ const char ERIZO = 'E';
 const char LAGARTIJA = 'L';
 const char ROEDOR = 'R';
 
+using std::cout;
+using std::string;
+using std::endl;
+
 Animal::Animal(std::string nombre, int edad, std::string tamanio, char especie, std::string personalidad){
     this->nombre = nombre;
     this->edad = edad;
@@ -22,19 +26,19 @@ Animal::Animal(std::string nombre, int edad, std::string tamanio, char especie, 
 }
 
 void Animal::presentar_animal(){
-    std::cout << "Animal: " << std::endl;
-    std::cout << "Nombre: " << this->nombre << std::endl;
-    std::cout << "Edad: " << this->edad << std::endl;
-    std::cout << "Tamaño: " << this->tamanio << std::endl;
-    std::cout << "Especie: " << get_especie_completa() << std::endl;
-    std::cout << "Personalidad: " << this->personalidad << std::endl;
-    std::cout << "Higiene: " << this->higene_actual << std::endl;
-    std::cout << "Hambre: " << this->hambre_actual << std::endl;
-    std::cout << std::endl;
+    cout << "Animal: " << endl;
+    cout << "Nombre: " << this->nombre << endl;
+    cout << "Edad: " << this->edad << endl;
+    cout << "Tamaño: " << this->tamanio << endl;
+    cout << "Especie: " << get_especie_completa() << endl;
+    cout << "Personalidad: " << this->personalidad << endl;
+    cout << "Higiene: " << this->higene_actual << endl;
+    cout << "Hambre: " << this->hambre_actual << endl;
+    cout << endl;
 }
 
-std::string Animal::get_especie_completa(){
-    std::string especie_completa;
+string Animal::get_especie_completa(){
+    string especie_completa;
 
     switch(this->especie){
         case PERRO:
