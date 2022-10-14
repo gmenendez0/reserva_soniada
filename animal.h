@@ -36,6 +36,7 @@ class Animal{
         //Post Si el metodo ducharse() no está implementada dentro de una clase hija, esta arrojara un error especificando que esa especie de animal no necesita duchas
         virtual void ducharse();
 
+        //Destructor
         virtual ~Animal() = default;
 
         //Post Devuelve el nombre del animal
