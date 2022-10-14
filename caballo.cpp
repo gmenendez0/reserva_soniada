@@ -3,7 +3,7 @@
 
 const int SUCIO = 0;
 const int AUMENTO_HAMBRE_BASE = 10;
-const int AUMENTO_HIGENE_BASE = 10;
+const int PERDIDA_HIGENE_BASE = 10;
 const int HIGENE_COMPLETA = 100;
 const int HAMBRIENTO = 100;
 const int BONUS_DORMILON = 2;
@@ -41,11 +41,11 @@ void Caballo::pasar_el_tiempo(){
 
 void Caballo::ensuciarse(){
     if(this->personalidad == "sociable" && !esta_sucio()){
-        higene_actual = higene_actual + (AUMENTO_HIGENE_BASE / BONUS_SOCIABLE);
+        higene_actual = higene_actual - (PERDIDA_HIGENE_BASE / BONUS_SOCIABLE);
     } else if(this->personalidad == "travieso" && !esta_sucio()) {
-        higene_actual = higene_actual + (AUMENTO_HIGENE_BASE * PENALIZACION_TRAVIESO);
+        higene_actual = higene_actual - (PERDIDA_HIGENE_BASE * PENALIZACION_TRAVIESO);
     } else if (!esta_sucio()) {
-        higene_actual = higene_actual + AUMENTO_HIGENE_BASE;
+        higene_actual = higene_actual - PERDIDA_HIGENE_BASE;
     }
 }
 

@@ -29,6 +29,14 @@ class Animal{
         //Post: Imprime en pantalla una presentacion de todos los atributos del animal.
         void presentar_animal();
 
+        virtual void pasar_el_tiempo() = 0;
+
+        virtual void comer() = 0;
+
+        //Post Si el metodo ducharse() no está implementada dentro de una clase hija, esta arrojara un error especificando que esa especie de animal no necesita duchas
+        virtual void ducharse();
+
+        virtual ~Animal() = default;
 };
 
 #endif

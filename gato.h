@@ -12,6 +12,7 @@ class Gato: public Animal{
         //Post: Llama al constructor de la clase padre y luego crea un perro seteando sus atributos.
         Gato(std::string nombre, int edad, std::string tamanio, char especie, std::string personalidad);
 
+    private:
         //Pre: -
         //Post: Restaura el hambre del animal al valor inicial e imprime por pantalla su nombre y lo que comio
         void comer();
@@ -19,8 +20,6 @@ class Gato: public Animal{
         //Pre: -
         //Post: Pone en marcha los metodos ensuciarse y aumentar_hambre.
         void pasar_el_tiempo();
-
-    private:
 
         //Pre: -
         //Post: Devuelve true si hambre_actual = 100, false en caso contrario.

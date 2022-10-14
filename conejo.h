@@ -12,6 +12,7 @@ class Conejo: public Animal{
         //Post: Llama al constructor de la clase padre y luego crea un perro seteando sus atributos.
         Conejo(std::string nombre, int edad, std::string tamanio, char especie, std::string personalidad);
 
+    private:
         //Pre: -
         //Post: Si es necesario, baña al animal y en caso de no serlo, lo aclara con un mensaje por terminal.
         void ducharse();
@@ -24,7 +25,6 @@ class Conejo: public Animal{
         //Post: Pone en marcha los metodos ensuciarse y aumentar_hambre.
         void pasar_el_tiempo();
 
-    private:
         //Pre: -
         //Post: Devuelve true si higene_actual = 0, false en caso contrario.
         bool esta_sucio();

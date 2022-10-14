@@ -72,3 +72,7 @@ string Animal::get_especie_completa(){
 
     return especie_completa;
 }
+
+void Animal::ducharse(){
+    cout << "La especie " << get_especie_completa() << " no require ducha!"<< endl;
+}

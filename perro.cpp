@@ -41,11 +41,11 @@ void Perro::pasar_el_tiempo(){
 
 void Perro::ensuciarse(){
     if(this->personalidad == "sociable" && !esta_sucio()){
-        higene_actual = higene_actual + (AUMENTO_HIGENE_BASE / BONUS_SOCIABLE);
+        higene_actual = higene_actual - (AUMENTO_HIGENE_BASE / BONUS_SOCIABLE);
     } else if(this->personalidad == "travieso" && !esta_sucio()) {
-        higene_actual = higene_actual + (AUMENTO_HIGENE_BASE * PENALIZACION_TRAVIESO);
+        higene_actual = higene_actual - (AUMENTO_HIGENE_BASE * PENALIZACION_TRAVIESO);
     } else if (!esta_sucio()) {
-        higene_actual = higene_actual + AUMENTO_HIGENE_BASE;
+        higene_actual = higene_actual - AUMENTO_HIGENE_BASE;
     }
 }
 

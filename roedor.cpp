@@ -8,7 +8,7 @@ const int PENALIZACION_JUGUETON = 2;
 const int SATISFECHO = 0;
 
 Roedor::Roedor(std::string nombre, int edad, std::string tamanio, char especie, std::string personalidad) : Animal(nombre, edad, tamanio, especie, personalidad){
-    this->tipo_de_comida = "atun";
+    this->tipo_de_comida = "queso";
 }
 
 void Roedor::comer(){
