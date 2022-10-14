@@ -39,7 +39,7 @@ class Lista{
         }
 
         //Pre Posicion debe ser mayor a 0 y menor o igual a tope_nodos
-        //Post: Devuelve el animal que se encuentra en la posicion que el usuario elijio
+        //Post: Devuelve un puntero al animal que se encuentra en la posicion que el usuario elijio
         Tipo_de_animal consulta(int posicion){
             return (get_nodo(posicion)->get_animal());
         }
@@ -73,7 +73,7 @@ class Lista{
             return (nodo_actual != nullptr);
         }
 
-        //Post: Devuelve el animal y mueve el cursor
+        //Post: Devuelve un puntero al animal y mueve el puntero al siguiente nodo
         Tipo_de_animal get_siguiente_animal(){
             Tipo_de_animal animal = nodo_actual->get_animal();
             nodo_actual = nodo_actual->get_siguiente_nodo();
