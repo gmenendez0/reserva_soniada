@@ -74,35 +74,37 @@ class Lista{
             return (nodo_actual != nullptr);
         }
 
-        //Post: Devuelve un puntero al animal y mueve el puntero al siguiente nodo
-        Tipo_de_animal get_siguiente_animal(){
+        //Post: Devuelve un puntero al animal a donde este apuntando nodo_actual
+        Tipo_de_animal get_animal_actual(){
             Tipo_de_animal animal = nodo_actual->get_animal();
-            nodo_actual = nodo_actual->get_siguiente_nodo();
             return animal;
         }
+
+        //Post: Mueve el nodo_actual al siguiente nodo
+        void avanzar_al_siguiente_animal(){
+            nodo_actual = nodo_actual->get_siguiente_nodo();
+        }
+
 
         //Post: Apunta el puntero "nodo_actual" al mismo lugar que primer_nodo
         void resetear_nodo_actual(){
             nodo_actual = primer_nodo;
         }
 
-        //Pre: Debe recibir el nombre de un animal
-        //Post: Devuelve la posicion del animal en la lista, si no lo encuentra devuelve -1
-        int get_posicion_animal(std::string nombre_animal){
-            int posicion_animal_elegido = ANIMAL_NO_ENCONTRADO;
-            int posicion_animal = ANIMAL_NO_ENCONTRADO;
+        //Pre: Debe recibir el nombre de un animal y Tipo_de_animal debe ser de tipo Puntero si o si
+        //Post: Devuelve un puntero al animal buscado o en caso de no existir, un puntero a nullptr
+        Tipo_de_animal get_animal_buscado(std::string nombre_animal){
+            Tipo_de_animal animal_buscado = nullptr;
 
-            if(hay_siguiente_animal()) posicion_animal = PRIMERA_POSICION;
-
-            while(hay_siguiente_animal() && posicion_animal_elegido == ANIMAL_NO_ENCONTRADO){
-                if(get_siguiente_animal()->get_nombre() == nombre_animal){
-                    posicion_animal_elegido = posicion_animal;
+            while(hay_siguiente_animal() && animal_buscado == nullptr){
+                if(get_animal_actual()->get_nombre() == nombre_animal){
+                    animal_buscado = get_animal_actual();
                 }
-                posicion_animal++;
+                avanzar_al_siguiente_animal();
             }
             resetear_nodo_actual();
 
-            return posicion_animal_elegido;
+            return animal_buscado;
         }
 
         //Destrutor

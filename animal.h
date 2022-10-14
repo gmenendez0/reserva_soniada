@@ -13,6 +13,7 @@ class Animal{
         string personalidad;
         int higene_actual;
         int hambre_actual;
+        int espacio_minimo_requerido;
 
     protected:
         //Pre: Debe recibir el nombre, la edad, el tamanio, la especie y la personalidad del animal.
@@ -23,6 +24,10 @@ class Animal{
         //Pre: -
         //Post: Devuelve la especie del animal en forma completa.
         string get_especie_completa();
+
+        //Pre: Debe recibir el tamaño del animal
+        //Post: Setea el espacio minimo requerido para que el animal pueda vivir
+        void set_espacio_minimo_requerido(string tamanio);
 
     public:
         //Pre: -
@@ -53,6 +58,9 @@ class Animal{
 
         //Post Devuelve la personalidad del animal
         string get_personalidad();
+
+        //Post Devuelve el espacio minimo requerido para que el animal pueda vivir
+        int get_espacio_minimo_requerido();
 };
 
 #endif

@@ -12,7 +12,6 @@ const int ALIMENTAR = 1;
 const int VOLVER = 3;
 const int REGRESAR_AL_INICIO = 4;
 const int CANTIDAD_DE_CARACTERES_A_IGNORAR = 100;
-const int NO_ENCONTRADO = -1;
 const int BANIAR = 2;
 
 //Pre Debe recibir una respuesta y dos valores para usar como límites en la comparacion
@@ -69,7 +68,8 @@ void imprimir_mensaje_de_comida(){
 //Post Baña a todos los animales
 void baniar_a_todos(Lista<Animal*> &registro_de_animales){
     while(registro_de_animales.hay_siguiente_animal()){
-        registro_de_animales.get_siguiente_animal()->ducharse();
+        registro_de_animales.get_animal_actual()->ducharse();
+        registro_de_animales.avanzar_al_siguiente_animal();
     }
     registro_de_animales.resetear_nodo_actual();
 
@@ -80,7 +80,8 @@ void baniar_a_todos(Lista<Animal*> &registro_de_animales){
 //Post Alimenta a todos los animales
 void alimentar_a_todos(Lista<Animal*> &registro_de_animales){
     while(registro_de_animales.hay_siguiente_animal()){
-        registro_de_animales.get_siguiente_animal()->comer();
+        registro_de_animales.get_animal_actual()->comer();
+        registro_de_animales.avanzar_al_siguiente_animal();
     }
     registro_de_animales.resetear_nodo_actual();
 
@@ -88,17 +89,15 @@ void alimentar_a_todos(Lista<Animal*> &registro_de_animales){
 }
 
 //Pre Debe recibir la lista de animales
-//Post Pide al usuario que ingrese un nombre para verificar si ese animal existe en la lista
-int pedir_nombre(Lista<Animal*> &registro_de_animales){
+//Post Pide al usuario que ingrese un nombre para verificar si ese animal existe en la lista. Devuelve un puntero al animal buscado por el usuario o a null si el animal no se encontro
+Animal* pedir_nombre(Lista<Animal*> &registro_de_animales){
     string nombre;
 
     cout << "Ingrese el nombre del animal que desea cuidar: ";
     std::getline(cin >> std::ws, nombre);
     cout << endl;
 
-    int posicion_animal_elegido = registro_de_animales.get_posicion_animal(nombre);
-
-    return posicion_animal_elegido;
+    return registro_de_animales.get_animal_buscado(nombre);
 }
 
 //Pre Debe una accion
@@ -131,13 +130,13 @@ int pedir_accion(){
     return accion_a_realizar;
 }
 
-//Pre Debe recibir la lista de animales, la posicion del animal a cuidar en la lista y la accion a realizar con el animal
+//Pre Debe recibir la lista de animales, el animal a cuidar y la accion a realizar con el animal
 //Post Realiza la accion elegida con el animal elegido
-void realizar_accion_pedida(Lista <Animal*> &registro_de_animales, int posicion_animal_elegido, int accion_a_realizar){
+void realizar_accion_pedida(Lista <Animal*> &registro_de_animales, Animal* animal_elegido, int accion_a_realizar){
     if(accion_a_realizar == ALIMENTAR){
-        registro_de_animales.consulta(posicion_animal_elegido)->comer();
+        animal_elegido->comer();
     } else if(accion_a_realizar == BANIAR){
-        registro_de_animales.consulta(posicion_animal_elegido)->ducharse();
+        animal_elegido->ducharse();
     }
 }
 
@@ -146,14 +145,14 @@ void realizar_accion_pedida(Lista <Animal*> &registro_de_animales, int posicion_
 void elegir_animal(Lista<Animal*> &registro_de_animales){
     listar_animales(registro_de_animales);
 
-    int posicion_animal_elegido = pedir_nombre(registro_de_animales);
-    while(posicion_animal_elegido == NO_ENCONTRADO){
+    Animal* animal_buscado = pedir_nombre(registro_de_animales);
+    while(animal_buscado == nullptr){
         cout << "El nombre ingresado no corresponde a ningun animal registrado. Porfavor, vuelva a intentar." << endl;
-        posicion_animal_elegido = pedir_nombre(registro_de_animales);
+        animal_buscado = pedir_nombre(registro_de_animales);
     }
 
     int accion_a_realizar = pedir_accion();
-    realizar_accion_pedida(registro_de_animales, posicion_animal_elegido, accion_a_realizar);
+    realizar_accion_pedida(registro_de_animales, animal_buscado, accion_a_realizar);
 }
 
 void cuidar_animales(Lista<Animal*> &registro_de_animales){

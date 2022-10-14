@@ -1,6 +1,7 @@
 #include "menu_controllers.h"
 #include "cuidar_animales_controllers.h"
 #include "listar_animales.h"
+#include "adoptar_animal_controllers.h"
 
 using std::cout;
 using std::cin;
@@ -52,6 +53,7 @@ int imprimir_menu(int cantidad_acciones){
     cout << "6. Guardar y salir" << endl;
     cout << "Ingrese una opcion: ";
     cin >> respuesta;
+    cout << endl;
 
     chequear_entrada(respuesta);
 
@@ -91,7 +93,7 @@ void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_anim
             break;
 
         case ADOPTAR_ANIMAL:
-            //funcion de adoptar animal
+            adoptar_animal(registro_de_animales);
             break;
 
         case GUARDAR_Y_SALIR:

@@ -11,6 +11,13 @@ const char ERIZO = 'E';
 const char LAGARTIJA = 'L';
 const char ROEDOR = 'R';
 
+const int ESPACIO_MINIMO_DIMINUTO = 1;
+const int ESPACIO_MINIMO_PEQUENIO = 1;
+const int ESPACIO_MINIMO_MEDIANO = 10;
+const int ESPACIO_MINIMO_GRANDE = 20;
+const int ESPACIO_MINIMO_GIGANTE = 50;
+
+
 using std::cout;
 using std::string;
 using std::endl;
@@ -23,6 +30,8 @@ Animal::Animal(std::string nombre, int edad, std::string tamanio, char especie, 
     this->personalidad = personalidad;
     this->higene_actual = HIGENE_INICIAL;
     this->hambre_actual = HAMBRE_INICIAL;
+
+    set_espacio_minimo_requerido(tamanio);
 }
 
 void Animal::presentar_animal(){
@@ -95,4 +104,22 @@ char Animal::get_especie(){
 
 string Animal::get_personalidad(){
     return this->personalidad;
+}
+
+int Animal::get_espacio_minimo_requerido(){
+    return this->espacio_minimo_requerido;
+}
+
+void Animal::set_espacio_minimo_requerido(string tamanio){
+    if(tamanio == "diminuto"){
+        this->espacio_minimo_requerido = ESPACIO_MINIMO_DIMINUTO;
+    } else if(tamanio == "pequeño"){
+        this->espacio_minimo_requerido = ESPACIO_MINIMO_PEQUENIO;
+    } else if( tamanio == "mediano"){
+        this->espacio_minimo_requerido = ESPACIO_MINIMO_MEDIANO;
+    } else if( tamanio == "grande"){
+        this->espacio_minimo_requerido = ESPACIO_MINIMO_GRANDE;
+    } else if( tamanio == "gigante"){
+        this->espacio_minimo_requerido = ESPACIO_MINIMO_GIGANTE;
+    }
 }
