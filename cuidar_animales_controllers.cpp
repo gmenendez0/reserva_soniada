@@ -1,4 +1,5 @@
 #include "cuidar_animales_controllers.h"
+#include "listar_animales.h"
 
 using std::cout;
 using std::cin;
@@ -100,15 +101,6 @@ int pedir_nombre(Lista<Animal*> &registro_de_animales){
     return posicion_animal_elegido;
 }
 
-//Pre Debe recibir la lista de animales
-//Post Presenta a todos los animales de la lista
-void presentar_animales(Lista<Animal*> &registro_de_animales){
-    while(registro_de_animales.hay_siguiente_animal()){
-        registro_de_animales.get_siguiente_animal()->presentar_animal();
-    }
-    registro_de_animales.resetear_nodo_actual();
-}
-
 //Pre Debe una accion
 //Post Chequea que la accion sea válida, en caso de no serlo vuelve a pedir una accion al usuario
 void chequear_accion_terciaria(int &accion_a_realizar){
@@ -152,7 +144,7 @@ void realizar_accion_pedida(Lista <Animal*> &registro_de_animales, int posicion_
 //Pre Debe recibir la lista de animales
 //Post Pone en marchas las debidas funciones para aplicar cuidados individuales a un animal
 void elegir_animal(Lista<Animal*> &registro_de_animales){
-    presentar_animales(registro_de_animales);
+    listar_animales(registro_de_animales);
 
     int posicion_animal_elegido = pedir_nombre(registro_de_animales);
     while(posicion_animal_elegido == NO_ENCONTRADO){

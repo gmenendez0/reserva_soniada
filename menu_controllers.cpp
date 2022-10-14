@@ -1,5 +1,6 @@
 #include "menu_controllers.h"
 #include "cuidar_animales_controllers.h"
+#include "listar_animales.h"
 
 using std::cout;
 using std::cin;
@@ -74,7 +75,7 @@ void imprimir_mensaje_despedida(){
 void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_animales){
     switch(opcion_elegida){
         case LISTAR_ANIMALES:
-            //funcion de listar animales
+            listar_animales(registro_de_animales);
             break;
 
         case RESCATAR_ANIMAL:
