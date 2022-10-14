@@ -1,4 +1,5 @@
 #include "menu_controllers.h"
+#include "cuidar_animales_controllers.h"
 
 using std::cout;
 using std::cin;
@@ -21,7 +22,7 @@ bool respuesta_es_valida(int respuesta){
 
 //Pre Debe recibir una respuesta
 //Post Chequea si la respuesta es valida, en caso de no serla vuelve a pedir una respuesta al usuario
-void chequear_entrada(int respuesta){
+void chequear_entrada(int &respuesta){
     while(!respuesta_es_valida(respuesta)){
         cout << "Usted a ingresado un valor invalido. Porfavor, vuelva a intentar:  ";
         cin.clear();
@@ -85,7 +86,7 @@ void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_anim
             break;
 
         case CUIDAR_ANIMALES:
-            //funcion de cuidar animales
+            cuidar_animales(registro_de_animales);
             break;
 
         case ADOPTAR_ANIMAL:

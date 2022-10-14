@@ -5,6 +5,7 @@
 static const int PRIMERA_POSICION = 1;
 const int UNA_POSICION = 1;
 const int LISTA_VACIA = 0;
+static const int ANIMAL_NO_ENCONTRADO = -1;
 
 template <typename Tipo_de_animal>
 class Lista{
@@ -83,6 +84,25 @@ class Lista{
         //Post: Apunta el puntero "nodo_actual" al mismo lugar que primer_nodo
         void resetear_nodo_actual(){
             nodo_actual = primer_nodo;
+        }
+
+        //Pre: Debe recibir el nombre de un animal
+        //Post: Devuelve la posicion del animal en la lista, si no lo encuentra devuelve -1
+        int get_posicion_animal(std::string nombre_animal){
+            int posicion_animal_elegido = ANIMAL_NO_ENCONTRADO;
+            int posicion_animal = ANIMAL_NO_ENCONTRADO;
+
+            if(hay_siguiente_animal()) posicion_animal = PRIMERA_POSICION;
+
+            while(hay_siguiente_animal() && posicion_animal_elegido == ANIMAL_NO_ENCONTRADO){
+                if(get_siguiente_animal()->get_nombre() == nombre_animal){
+                    posicion_animal_elegido = posicion_animal;
+                }
+                posicion_animal++;
+            }
+            resetear_nodo_actual();
+
+            return posicion_animal_elegido;
         }
 
         //Destrutor
