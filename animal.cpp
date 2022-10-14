@@ -76,3 +76,23 @@ string Animal::get_especie_completa(){
 void Animal::ducharse(){
     cout << "La especie " << get_especie_completa() << " no require ducha!"<< endl;
 }
+
+string Animal::get_nombre(){
+    return this->nombre;
+}
+
+int Animal::get_edad(){
+    return this->edad;
+}
+
+string Animal::get_tamanio(){
+    return this->tamanio;
+}
+
+char Animal::get_especie(){
+    return this->especie;
+}
+
+string Animal::get_personalidad(){
+    return this->personalidad;
+}

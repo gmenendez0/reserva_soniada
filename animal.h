@@ -37,6 +37,21 @@ class Animal{
         virtual void ducharse();
 
         virtual ~Animal() = default;
+
+        //Post Devuelve el nombre del animal
+        string get_nombre();
+
+        //Post Devuelve la edad del animal
+        int get_edad();
+
+        //Post Devuelve el tamaño del animal
+        string get_tamanio();
+
+        //Post Devuelve la inicial de la especie del animal
+        char get_especie();
+
+        //Post Devuelve la personalidad del animal
+        string get_personalidad();
 };
 
 #endif
