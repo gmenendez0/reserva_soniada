@@ -71,6 +71,7 @@ char pedir_especie(){
     return inicial;
 }
 
+
 //Pre: Recibe el tamaño a validar.
 //Post: Devuelve true si el tamaño es válido y false en caso contrario.
 bool validar_tamanio(string tamanio){
