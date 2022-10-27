@@ -150,6 +150,4 @@ void adoptar_animal(Lista<Animal*> &registro_de_animales){
     }
 
     delete [] animales_adoptables;
-
-    cout << registro_de_animales.get_tope_nodos();
 }

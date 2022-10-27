@@ -18,6 +18,8 @@ void abrir_archivo(std::ofstream &archivo){
 	}
 }
 
+//Pre: Debe recibir el archivo y la lista
+//Post: Sobreescribe el archivo con la informacion guardada en la lista
 void sobreescribir_archivo(std::ofstream &archivo, Lista<Animal*> &registro_de_animales){
     string animal, nombre, edad, tamanio, especie, personalidad;
 

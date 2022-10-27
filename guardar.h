@@ -5,7 +5,7 @@
 #include "animal.h"
 
 //pre: Debe existir el archivo "animales.csv"
-//post: Sobreescribe el archivo "animales.csv" con los datos de la lista
+//post: Guarda los cambios de la lista al archivo "animales.csv"
 void guardar_cambios(Lista<Animal*> &registro_de_animales);
 
 #endif //__GUARDAR_H__
