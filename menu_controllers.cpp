@@ -2,9 +2,9 @@
 #include "cuidar_animales_controllers.h"
 #include "listar_animales.h"
 #include "adoptar_animal_controllers.h"
-//#include "rescatar_animal.h"
 #include "guardar.h"
 #include "buscar_animal.h"
+#include "pasar_tiempo_controllers.h"
 
 using std::cout;
 using std::cin;
@@ -80,26 +80,32 @@ void imprimir_mensaje_despedida(){
 void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_animales){
     switch(opcion_elegida){
         case LISTAR_ANIMALES:
+            pasar_el_tiempo(registro_de_animales);
             listar_animales(registro_de_animales);
             break;
 
         case RESCATAR_ANIMAL:
+            pasar_el_tiempo(registro_de_animales);
             //rescatar_animal(registro_de_animales);
             break;
 
         case BUSCAR_ANIMAL:
+            pasar_el_tiempo(registro_de_animales);
             proceso_de_busqueda(registro_de_animales);
             break;
 
         case CUIDAR_ANIMALES:
+            pasar_el_tiempo(registro_de_animales);
             cuidar_animales(registro_de_animales);
             break;
 
         case ADOPTAR_ANIMAL:
+            pasar_el_tiempo(registro_de_animales);
             adoptar_animal(registro_de_animales);
             break;
 
         case GUARDAR_Y_SALIR:
+            pasar_el_tiempo(registro_de_animales);
             guardar_cambios(registro_de_animales);
             imprimir_mensaje_despedida();
             break;
