@@ -156,6 +156,11 @@ void elegir_animal(Lista<Animal*> &registro_de_animales){
 }
 
 void cuidar_animales(Lista<Animal*> &registro_de_animales){
+    if(registro_de_animales.get_tope_nodos() == LISTA_VACIA){
+        std::cout << "No hay animales registrados para cuidar." << std::endl << std::endl;
+        return;
+    }
+
     int respuesta = mostrar_menu_secundario();
 
     switch(respuesta){

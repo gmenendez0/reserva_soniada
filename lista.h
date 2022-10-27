@@ -53,6 +53,7 @@ class Lista{
             if (posicion == PRIMERA_POSICION){
                 nodo_a_borrar = primer_nodo;
                 primer_nodo = primer_nodo->get_siguiente_nodo();
+                nodo_actual = primer_nodo;
             } else {
                 Nodo<Tipo_de_animal>* anterior_nodo = get_nodo(posicion - UNA_POSICION);
                 nodo_a_borrar = anterior_nodo->get_siguiente_nodo();

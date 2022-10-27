@@ -130,6 +130,11 @@ void pedir_animal(Animales_adoptables* animales_adoptables, int tope_animales_ad
 }
 
 void adoptar_animal(Lista<Animal*> &registro_de_animales){
+    if(registro_de_animales.get_tope_nodos() == LISTA_VACIA){
+        cout << "No hay animales para adoptar en la reserva." << endl << endl;
+        return;
+    }
+
     int maximo_de_animales_adoptables = MAXIMO_DE_ANIMALES_ADOPTABLES_INICIAL;
     Animales_adoptables* animales_adoptables = new Animales_adoptables[maximo_de_animales_adoptables];
     int tope_animales_adoptables = 0;
@@ -137,6 +142,7 @@ void adoptar_animal(Lista<Animal*> &registro_de_animales){
     int espacio_disponible = consultar_espacio_disponible();
     inicializar_animales_adoptables(registro_de_animales, espacio_disponible, animales_adoptables, tope_animales_adoptables, maximo_de_animales_adoptables);
     mostrar_animales_adoptables(animales_adoptables, tope_animales_adoptables);
+
     if(tope_animales_adoptables > NINGUN_ANIMAL) {
         pedir_animal(animales_adoptables, tope_animales_adoptables, registro_de_animales);
     } else {
@@ -144,4 +150,6 @@ void adoptar_animal(Lista<Animal*> &registro_de_animales){
     }
 
     delete [] animales_adoptables;
+
+    cout << registro_de_animales.get_tope_nodos();
 }

@@ -2,6 +2,9 @@
 #include "cuidar_animales_controllers.h"
 #include "listar_animales.h"
 #include "adoptar_animal_controllers.h"
+//#include "rescatar_animal.h"
+#include "guardar.h"
+#include "buscar_animal.h"
 
 using std::cout;
 using std::cin;
@@ -81,11 +84,11 @@ void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_anim
             break;
 
         case RESCATAR_ANIMAL:
-            //funcion de rescatar animal
+            //rescatar_animal(registro_de_animales);
             break;
 
         case BUSCAR_ANIMAL:
-            //funcion de buscar animal
+            proceso_de_busqueda(registro_de_animales);
             break;
 
         case CUIDAR_ANIMALES:
@@ -97,7 +100,7 @@ void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_anim
             break;
 
         case GUARDAR_Y_SALIR:
-            //funcion de guardar y salir
+            guardar_cambios(registro_de_animales);
             imprimir_mensaje_despedida();
             break;
     }
