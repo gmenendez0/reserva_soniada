@@ -8,4 +8,8 @@
 //Post Devuelve 0 si pudo abrir el archivo y 1 si no pudo
 int abrir_archivo(Lista<Animal*> &registro_de_animales);
 
+//Pre: Debe recibir todas las caracteristicas de un animal.
+//Post: Revisa a que especie pertenece el nuevo animal y llama a la funcion correspondiente para crearlo
+void revisar_especie(string nombre, int edad, string tamanio, char especie, string personalidad, Lista<Animal*> &registro_de_animales);
+
 #endif

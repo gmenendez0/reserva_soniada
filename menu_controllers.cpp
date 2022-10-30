@@ -1,9 +1,10 @@
 #include "menu_controllers.h"
-#include "cuidar_animales_controllers.h"
 #include "listar_animales.h"
+#include "rescatar_animal.h"
+#include "buscar_animal.h"
+#include "cuidar_animales_controllers.h"
 #include "adoptar_animal_controllers.h"
 #include "guardar.h"
-#include "buscar_animal.h"
 #include "pasar_tiempo_controllers.h"
 
 using std::cout;
@@ -43,9 +44,9 @@ int imprimir_menu(int cantidad_acciones){
     int respuesta;
 
     if(cantidad_acciones == UNA_ACCION){
-        cout << "Bienvenido al sistema de rescate de animales. Que desea realizar?" << endl;
+        cout << "Bienvenido al sistema de rescate de animales." << endl << "¿Qué desea realizar?" << endl << endl;
     } else {
-        cout << "Algo mas?" << endl;
+        cout << "¿Algo más?" << endl << endl;
     }
 
     cout << "1. Listar animales" << endl;
@@ -74,7 +75,7 @@ int mostrar_menu(int &cantidad_acciones){
 //Pre
 //Post Imprime el mensaje de despedida al usuario
 void imprimir_mensaje_despedida(){
-    cout << "Guardando y saliendo..." << endl;
+    cout << "Guardando y saliendo...";
 }
 
 void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_animales){
@@ -86,7 +87,7 @@ void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_anim
 
         case RESCATAR_ANIMAL:
             pasar_el_tiempo(registro_de_animales);
-            //rescatar_animal(registro_de_animales);
+            rescatar_animal(registro_de_animales);
             break;
 
         case BUSCAR_ANIMAL:
@@ -111,5 +112,3 @@ void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_anim
             break;
     }
 }
-
-

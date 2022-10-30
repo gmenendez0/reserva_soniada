@@ -30,8 +30,6 @@ void crear_animal(string nombre, int edad, string tamanio, char especie, string 
     registro_de_animales.alta(nuevo_animal, (registro_de_animales.get_tope_nodos() + UNA_POSICION));
 }
 
-//Pre: Debe recibir todas las caracteristicas de un animal.
-//Post: Revisa a que especie pertenece el nuevo animal y llama a la funcion correspondiente para crearlo
 void revisar_especie(string nombre, int edad, string tamanio, char especie, string personalidad, Lista<Animal*> &registro_de_animales){
 
     if(especie == 'G'){
