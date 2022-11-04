@@ -75,7 +75,7 @@ int mostrar_menu(int &cantidad_acciones){
 //Pre
 //Post Imprime el mensaje de despedida al usuario
 void imprimir_mensaje_despedida(){
-    cout << "Guardando y saliendo...";
+    cout << "Guardando y saliendo..." << endl;
 }
 
 void activar_opcion_elegida(int opcion_elegida, Lista<Animal*> &registro_de_animales){
