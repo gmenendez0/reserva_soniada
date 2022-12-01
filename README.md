@@ -1,6 +1,6 @@
 # La reserva soñada
-Para compilar aplicar el siguiente comando en la linea de comando de linux: g++ *.cpp -Wall -Werror -Wconversion -o reserva_soniada   
-Para correr el ejecutable, aplicar el siguiente comando en la linea de comando de linux: ./reserva_soniada  
+Para compilar aplicar el siguiente comando en la linea de comando de linux: ***g++ *.cpp -Wall -Werror -Wconversion -o reserva_soniada***   
+Para correr el ejecutable, aplicar el siguiente comando en la linea de comando de linux: ***./reserva_soniada***  
 
 1)Se listaran todos los animales con su nombre, edad, tamaño, especie en forma completa, personalidad, hambre e higiene.  
 2)El usuario debera ingresar los datos del animal a rescatar para poder registrar este en la reserva.  
